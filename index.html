@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="坦克动荡单人版：随机迷宫、反弹炮弹，直接在浏览器挑战电脑。">
+<title>坦克动荡 · 单人版</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+ <header><a class="brand" href="./" aria-label="迷宫对决首页"><span class="brand-mark">▰</span><span>迷宫对决<small>TANK MAZE LAB</small></span></a><span class="edition">单人版 <i></i> 打开即玩</span><button id="sound" class="icon-btn" aria-label="开启音效" title="开启音效">音效 关</button></header>
+ <main>
+  <div class="intro"><div><span class="eyebrow">RICOCHET. RELOAD. REPEAT.</span><h1>坦克动荡 · 单人版<span>每一发，都有回响。</span></h1></div><p>转过墙角，算好反弹。<br>最后留下的坦克，赢得这一回合。</p></div>
+  <div class="layout">
+   <section class="arena-panel" aria-label="游戏区域">
+    <div class="arena-top"><span><i class="live-dot"></i><b id="status">准备就绪</b></span><span id="round-label">ROUND 01</span><button id="fullscreen" aria-label="全屏游戏">⛶ 全屏</button></div>
+    <div class="arena-wrap" id="arena-wrap"><canvas id="game" width="784" height="560" tabindex="0" aria-label="坦克迷宫，使用键盘控制"></canvas><div class="veil" id="overlay"><div class="overlay-inner"><div class="crosshair">✛</div><span id="overlay-kicker">READY TO RUMBLE</span><h2 id="overlay-title">一场混乱，马上开始。</h2><p id="overlay-desc">你的炮弹会反弹。也会击中你自己。</p><button class="primary" id="start">进入战场 <span>↗</span></button><small id="overlay-note">按空格也可以开始 · 建议使用键盘</small></div></div><div id="toast" role="status" aria-live="polite"></div></div>
+    <div class="arena-bottom"><span><i class="green-dot"></i> 随机迷宫 <em> / </em> 一击淘汰 <em> / </em> 炮弹反弹</span><div><button id="pause">Ⅱ 暂停</button><button id="restart">↻ 新比赛</button></div></div>
+   </section>
+   <aside>
+    <section class="card setup"><div class="section-title"><span>01 / 比赛设置</span><span class="tiny">SOLO PLAY</span></div><label for="mode">对战模式</label><div class="mode-switch"><button data-mode="solo" class="active">单人 · 挑战电脑</button></div><select id="mode" hidden aria-label="对战模式"><option value="solo">人机对战</option></select><div class="setting-row"><label for="goal">胜利目标</label><select id="goal"><option value="5">先赢 5 回合</option><option value="7">先赢 7 回合</option><option value="10">先赢 10 回合</option></select></div><div class="setting-row"><label for="pickups">补给箱</label><button id="pickups" class="toggle" aria-pressed="true">已开启 <span></span></button></div><p class="settings-note">更改设置将在下一场新比赛生效。</p></section>
+    <section class="card scoreboard"><div class="section-title"><span>02 / 战况</span><button id="reset-score" title="开始新比赛">清零</button></div><div id="scores"></div><div class="score-note">存活到最后，记 1 分。<br>同时阵亡则为平局。</div></section>
+    <section class="card controls"><div class="section-title"><span>03 / 操作手册</span><span class="tiny">KEYBOARD</span></div><div class="control-row"><span class="player-label p1">P1</span><div><b>W A S D / 方向键</b><small>前进 / 转向 / 后退</small></div><kbd>Q / 空格</kbd></div><div class="control-row"><span class="player-label p2">AI</span><div><b>电脑对手</b><small>自动驾驶，留心它的反弹炮弹</small></div></div><div class="shortcut"><kbd>P</kbd> 暂停 <kbd>R</kbd> 新比赛</div></section>
+   </aside>
+  </div>
+  <div class="touch-controls" aria-label="触屏控制"><button data-key="KeyA">↶</button><button data-key="KeyW">↑</button><button data-key="KeyS">↓</button><button data-key="KeyD">↷</button><button data-key="Space" class="touch-fire">开火</button></div>
+  <section class="tips"><span class="tip-index">FIELD NOTES / 001</span><p><b>别急着连发。</b> 普通炮弹最多同时存在 5 发，10 秒后消失。射出一发，换个位置，留心它回来的方向。</p><div class="supply-legend"><span><i class="rapid">»</i>速射</span><span><i class="spread">⋮</i>散射</span><span><i class="shield">◇</i>护盾</span></div></section>
+ </main>
+ <footer><span>MADE FOR A LITTLE TROUBLE.</span><span>玩法研究与独立实现 · 非官方作品 · 单人挑战电脑</span></footer>
+</div>
+
+<script src="engine.js"></script><script src="game.js"></script>
+</body></html>
+
